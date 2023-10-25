@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FundooModel\FundooModel.csproj" />
     <ProjectReference Include="..\FundooRepository\FundooRepository.csproj" />
   </ItemGroup>
 
