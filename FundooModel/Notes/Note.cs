@@ -11,8 +11,7 @@ namespace FundooModel.Notes
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int NoteId { get; set; }
-        
+        public int Id { get; set; }
         [Required]
         public string EmailId { get; set; }
         [Required]
@@ -27,9 +26,9 @@ namespace FundooModel.Notes
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
 
-        public int Id { get; set; }
-        [ForeignKey("Id")]
-        public Register Register { get; set; }
+        //public int Id { get; set; }
+        //[ForeignKey("Id")]
+        //public Register Register { get; set; }
 
 
     }

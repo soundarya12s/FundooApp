@@ -11,6 +11,7 @@ namespace FundooRepository.IRepository
         public Task<int> AddLabel(Label label);
         public Label UpdateLabel(Label label);
         public IEnumerable<Label> GetAllLabels(int userId);
+        public IEnumerable<Label> GetAllLabelNotes(int userId);
         public bool DeleteLabel(int LabelId);
     }
 }

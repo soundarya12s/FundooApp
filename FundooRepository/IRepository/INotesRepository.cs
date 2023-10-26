@@ -22,7 +22,7 @@ namespace FundooRepository.IRepository
         public IEnumerable<Note> GetAllTrashNotes(int userId);
         public Note PinNote(int noteId, int userId);
         public bool DeleteNotesForever(int noteId, int userId);
-        public bool RestoreNotes(int noteId,int userId);
+        public bool RestoreNotes(int noteId, int userId);
         public Note AddNotesToFundoo(NotesEntity note, string emailId);
 
     }

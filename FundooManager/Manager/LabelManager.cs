@@ -31,6 +31,12 @@ namespace FundooManager.Manager
             var result = this.labelRepository.GetAllLabels(userId);
             return result;
         }
+
+        public IEnumerable<Label> GetAllLabelNotes(int userId)
+        {
+            var result = this.labelRepository.GetAllLabelNotes(userId);
+            return result;
+        }
         public bool DeleteLabel(int LabelId)
         {
             var result = this.labelRepository.DeleteLabel(LabelId);

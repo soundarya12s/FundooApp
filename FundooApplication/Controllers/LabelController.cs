@@ -4,6 +4,7 @@ using FundooModel.Notes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace FundooApplication.Controllers
@@ -69,6 +70,22 @@ namespace FundooApplication.Controllers
             catch (Exception ex)
             {
                 return this.NotFound(new { Status = false, Message = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        [Route("GetAllLabelNotes")]
+        public async Task<ActionResult> GetAllLabelNotes(int userId)
+        {
+            try
+            {
+                var result = labelManager.GetAllLabelNotes(userId);
+                return this.Ok(new { Status = true, Message = "GetAll labell notes successful", Data = result });
+               
+            }
+            catch (Exception ex)
+            {
+                return this.Ok(new { Status = true, Message = "Get all Label Notes successful", Data = ex.Message });
             }
         }
         [HttpPut]

@@ -2,7 +2,7 @@
 using FundooModel.Entity;
 using FundooModel.Notes;
 using FundooRepository.IRepository;
-using FundooRepository.Repository;
+//using FundooRepository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;

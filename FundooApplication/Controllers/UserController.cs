@@ -1,5 +1,6 @@
 ﻿using FundooManager.IManager;
 using FundooModel.User;
+using FundooRepository.Context;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,12 @@ namespace FundooApplication.Controllers
     {
         public readonly IUserManager userManager;
 
-        public UserController(IConfiguration configuration)
+        public readonly UserDbContext _userDbContext;
+
+        public UserController(IConfiguration configuration, UserDbContext userDbContext)
         {
             Configuration = configuration;
+            _userDbContext = userDbContext;
         }
 
         public IConfiguration Configuration { get; }
@@ -56,10 +60,10 @@ namespace FundooApplication.Controllers
         {
             try
             {
+                //var result1 = this.userManager.RegisterUser(register);
                 var result = this.userManager.LoginUser(login);
                 if (result != null)
                 {
-                    var tokenDetails = this.GenerateJWTToken(result.Id, result.Email);
                     return this.Ok(new { Status = true, Message = "User Login Successful", Data = result });
                 }
                 return this.BadRequest(new { Status = false, Message = "User Login Unsuccessful" });

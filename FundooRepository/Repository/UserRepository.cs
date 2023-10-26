@@ -35,7 +35,7 @@ namespace FundooRepository.Repository
             var result = this.context.SaveChangesAsync();
             NLog.LogInfo("Registered User");
             return result;
-           
+
         }
         public string LoginUser(Login login)
         {
@@ -60,7 +60,7 @@ namespace FundooRepository.Repository
                 throw;
             }
 
-          
+
         }
         public Register ResetPassword(ResetPassword reset)
         {
@@ -148,6 +148,6 @@ namespace FundooRepository.Repository
 
         }
 
-       
+
     }
 }

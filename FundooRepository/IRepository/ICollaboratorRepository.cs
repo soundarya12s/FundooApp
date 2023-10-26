@@ -10,6 +10,6 @@ namespace FundooRepository.IRepository
     {
         public Task<int> AddCollaborator(Collaborator collaborator);
         public bool DeleteCollab(int noteId, int userId);
-        public IEnumerable<Collaborator> GetAllCollabNotes(int userId, string labelId);
+        public IEnumerable<Collaborator> GetAllCollabNotes(int userId);
     }
 }

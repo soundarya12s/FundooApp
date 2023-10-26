@@ -3,6 +3,7 @@ using FundooManager.Manager;
 using FundooRepository.Context;
 using FundooRepository.IRepository;
 using FundooRepository.Repository;
+//using FundooRepository.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,12 +33,16 @@ namespace FundooApplication
         {
             services.AddControllers();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddDbContextPool<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserDbConnection")));
+            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserDbConnection")));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserManager, UserManager>();
             services.AddScoped<INotesManager, NotesManager>();
             services.AddScoped<INotesRepository, NotesRepository>();
-         
+            services.AddScoped<ILabelManager, LabelManager>();
+            services.AddScoped<ILabelRepository, LabelRepository>();
+            //services.AddScoped<ICollaboratorManager, CollaboratorManager>();
+            //services.AddScoped<ICollaboratorRepository, CollaboratorRepository>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -46,7 +51,7 @@ namespace FundooApplication
                     Version = "v1",
                     Description = "Fundoo Application"
                 });
-                var key = Encoding.UTF8.GetBytes(Configuration["JWTKey"]);
+               
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,

@@ -17,6 +17,6 @@ namespace FundooModel.Notes
         public int NoteId { get; set; }
         public int SenderUserId { get; set; }
         public int ReceiverUserId { get; set; }
-       
+
     }
 }
